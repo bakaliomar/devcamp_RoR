@@ -1,24 +1,21 @@
-# README
+# myapp
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-i hope you 
-Things you may want to cover:
+> this my trainaing app that i will create during the course
 
-* Ruby version
+### the feauter 
 
-* System dependencies
+- smoth
+- easy
+- more ...
 
-* Configuration
+#### snipet code 
 
-* Database creation
+```ruby
+def method
+    p 'hello world'
+end
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+```javascript
+alert('hi there');
+```
