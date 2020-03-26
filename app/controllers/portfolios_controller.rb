@@ -2,6 +2,12 @@ class PortfoliosController < ApplicationController
     def index
         @portfolio_items= Portfolio.all
     end
+    def vue
+        @vue_portfolio_items= Portfolio.vue 
+    end
+    def ruby_on_rails
+        @ruby_on_rails_portfolio_items= Portfolio.ruby_on_rails
+    end
     def new
         @portfolio_item = Portfolio.new
     end
