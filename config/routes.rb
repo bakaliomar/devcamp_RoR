@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  devise_for :users
   resources :portfolios, except: [:show]
   get 'vue-items', to: 'portfolios#vue'
   get 'ruby-on-rails-items', to: 'portfolios#ruby_on_rails'
