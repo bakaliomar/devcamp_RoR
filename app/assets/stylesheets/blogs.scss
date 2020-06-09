@@ -1,5 +1,5 @@
 @import "bootstrap";
-
+@import "font-awesome";
 
 .bd-placeholder-img {
     font-size: 1.125rem;
@@ -122,4 +122,9 @@
   .blog-footer p:last-child {
     margin-bottom: 0;
   }
-  
+   /*
+   * Custom styles
+   */
+   .social-links li {
+     font-size: 2.5em;
+   }
