@@ -1,9 +1,20 @@
-<h2><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></h2>
-
-<p><%= portfolio_item.subtitle %></p>
-
-<p><%= portfolio_item.body %></p>
-
-<%= image_tag portfolio_item.thub_image unless portfolio_item.thub_image.nil? %><br>
-<%= link_to "Edit", edit_portfolio_path(portfolio_item) if logged_in?(:site_admin) %>
-<%= link_to 'Delete', portfolio_path(portfolio_item), method: :delete, data: { confirm: 'Are you sure?' } if logged_in?(:site_admin) %>
+<div class="col-md-4">
+    <div class="card mb-4 shadow-sm">
+        <%= image_tag portfolio_item.thub_image unless portfolio_item.thub_image.nil? %>
+        <div class="card-body">
+            <p class="card-text">
+                <span><%= link_to portfolio_item.title, portfolio_show_path(portfolio_item) %></span>
+                <%= portfolio_item.subtitle %>
+            </p>
+            <div class="d-flex justify-content-between align-items-center">
+            <div class="btn-group">
+                <% if logged_in?(:site_admin) %>
+                    <%= link_to "Edit", edit_portfolio_path(portfolio_item), class: 'btn btn-sm btn-outline-secondary' %>
+                    <%= link_to 'Delete', portfolio_path(portfolio_item), method: :delete, data: { confirm: 'Are you sure?' },class: 'btn btn-sm btn-outline-secondary' %>
+                <% end %>
+            </div>
+            <small class="text-muted"><%= distance_of_time_in_words(portfolio_item.created_at, Time.now) %></small>
+            </div>
+        </div>
+    </div>
+</div>
