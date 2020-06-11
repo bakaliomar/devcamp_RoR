@@ -7,6 +7,9 @@ class Portfolio < ApplicationRecord
     def self.vue
         where(subtitle: 'vue js')
     end
+    def self.by_position
+        order("position ASC")
+    end
     scope :ruby_on_rails, -> { where(subtitle: 'Ruby On Rails') }
 
     after_initialize :set_defaults

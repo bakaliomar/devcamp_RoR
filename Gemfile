@@ -42,6 +42,7 @@ gem 'petergate', '~> 2.0', '>= 2.0.1'
 gem 'font-awesome-rails', '~> 4.7', '>= 4.7.0.5'
 gem 'will_paginate', '~> 3.1.1'
 gem 'will_paginate-bootstrap', '~> 1.0', '>= 1.0.2'
+gem 'jquery-ui-rails', '~> 6.0', '>= 6.0.1'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
