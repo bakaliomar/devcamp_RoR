@@ -4,6 +4,8 @@ class Portfolio < ApplicationRecord
                                     reject_if: lambda { |attrs| attrs['name'].blank? }
     include Placeholder
     validates_presence_of :title, :body,:main_image, :thub_image
+    mount_uploader :thub_image, PortfolioUploader
+    mount_uploader :main_image, PortfolioUploader
     def self.vue
         where(subtitle: 'vue js')
     end
