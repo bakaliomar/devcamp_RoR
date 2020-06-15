@@ -23,7 +23,8 @@
       </div>
       <div class="row">
         <%= yield %>
-          <%= render "shared/blog_sidebar" %>
+        <%= render "shared/blog_sidebar" %>
+        <%= alerts %>
         <%= source_helper("blog") %>
       </div>
     </main>
