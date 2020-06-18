@@ -9,7 +9,7 @@ class Blog < ApplicationRecord
     has_many :comments, dependent: :destroy
 
     def self.feature
-        limi(2)
+        includes(:topic).limit(2)
     end
     def self.recent
         order('created_at DESC')
