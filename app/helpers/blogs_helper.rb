@@ -20,4 +20,11 @@ module BlogsHelper
         markdown_to_html = Redcarpet::Markdown.new(coderayified, options)
         markdown_to_html.render(text).html_safe
     end
+    def blog_status_icon blog
+        if blog.draft?
+            fa_icon('lock').html_safe
+        else
+            fa_icon('globe').html_safe
+        end
+    end
 end
