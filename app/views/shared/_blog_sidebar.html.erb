@@ -10,7 +10,7 @@
             <%  if logged_in? :site_admin %>
                 <%= render Topic.all %>
                 <hr width="25%" style="margin-left:0px;">
-                <%= link_to "create new", new_topic_path %>
+                <%= link_to fa_icon('plus-square') + " New", new_topic_path %>
             <% else%>
                 <%= render Topic.own_blogs %>
             <% end %>
