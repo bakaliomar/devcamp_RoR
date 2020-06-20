@@ -4,6 +4,21 @@
         <div class= "row">
             <div class="col-md-4">
                 <%= image_tag 'profile.jpeg', width: 300, height: 400, alt: 'Profile image', class: 'profile-img' %>
+                <div class="skills">
+                    <% @skills.each do |skill| %>
+                        <div class="skill">
+                            <h4><%= skill.title %></h4>
+                            <div class="progress">
+                                    <div class="progress-bar progress-bar-striped bg-warning"
+                                    role="progressbar"
+                                    aria-valuenow="<%= skill.percent_utilized %>"
+                                    aria-valuemax="100"
+                                    style="width: <%= skill.percent_utilized %>%"
+                                ></div>
+                            </div>
+                        </div>
+                    <% end %>    
+                </div>
             </div>
             <div class="col-md-7 ml-5">
                 <p>With my humble experience in the world of development I realized that the 
@@ -39,24 +54,18 @@
                 <p>
                     <div class="collapse" id="jobHistory">
                             <div class="card card-block">
-                                job 1
+                                2 months : traineeship with an agence that create wordpress sites
                             </div>
                             <div class="card card-block">
-                                job 2
-                            </div>
-                            <div class="card card-block">
-                                job 3
+                                4 months : email marketer in a marketing company
                             </div>
                     </div>
                     <div class="collapse" id="education">
                             <div class="card card-block">
-                                school 1
+                                2015/2016 : high school degree in science
                             </div>
                             <div class="card card-block">
-                                school 2
-                            </div>
-                            <div class="card card-block">
-                                school 3
+                                2017/2019 : specialized IT development technician
                             </div>
                     </div>
                 </p>
