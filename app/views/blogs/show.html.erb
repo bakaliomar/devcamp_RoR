@@ -1,7 +1,18 @@
 <div class="col-md-8 blog-main">
   <h2> <%= @blog.title %> </h2>
-  <%= link_to 'Edit', edit_blog_path(@blog) if logged_in?(:site_admin) %>
-  <p> <%= @blog.body %> </p>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><%= link_to 'Home', root_path %></li>
+      <li class="breadcrumb-item"><%= link_to @blog.topic.title, @blog.topic %></li>
+      <li class="breadcrumb-item active" aria-current="<%= @blog.title %>"><%= @blog.title %></li>
+      <li class="ml-auto">
+        <span><%= link_to fa_icon('pencil-square-o'), edit_blog_path(@blog) if logged_in?(:site_admin) %></span>
+        <span><%= link_to fa_icon('trash'), @blog, method: :delete, data: { confirm: 'Are you sure you wanna delete this' } if logged_in?(:site_admin) %></span>
+      </li>
+    </ol>
+  </nav>
+  
+  <p> <%= markdown(@blog.body) %> </p>
   <hr>
  
   <%= render "comments/comment_form" %>

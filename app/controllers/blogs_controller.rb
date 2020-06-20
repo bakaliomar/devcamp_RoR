@@ -6,18 +6,24 @@ class BlogsController < ApplicationController
   # GET /blogs
   # GET /blogs.json
   def index
-    @blogs = Blog.paginate(page: params[:page], per_page: 5)
+    if logged_in? :site_admin
+      @blogs = Blog.recent.paginate(page: params[:page], per_page: 5)
+    else
+      @blogs = Blog.published.recent.paginate(page: params[:page], per_page: 5)
+    end
     @page_title = "My portfolio blog"
   end
 
   # GET /blogs/1
   # GET /blogs/1.json
   def show
-    @blog = Blog.includes(:comments).friendly.find(params[:id])
-    @comment = Comment.new
-    
-    @page_title = @blog.title
-    @seo_keywords = @blog.body
+    if logged_in? :site_admin || @blog.published?
+      @blog = Blog.includes(:comments).friendly.find(params[:id])
+      @comment = Comment.new
+      
+      @page_title = @blog.title
+      @seo_keywords = @blog.body
+    end
   end
 
   # GET /blogs/new
@@ -86,6 +92,6 @@ class BlogsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def blog_params
-      params.require(:blog).permit(:title, :body)
+      params.require(:blog).permit(:title, :body, :tpic_id, :status)
     end
 end

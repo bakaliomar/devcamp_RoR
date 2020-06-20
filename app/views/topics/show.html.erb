@@ -1,9 +1,11 @@
 <div class="col-md-8 blog-main">
     <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
     <h3 class="pb-4 mb-4 font-italic border-bottom">
-        From the Firehose
+        <%= @topic.title %> /
+        <%= link_to 'Edit', edit_topic_path(@topic) if logged_in?(:site_admin) %>
     </h3>
 
     <%= render @blogs %>
     <%= will_paginate @blogs, renderer: BootstrapPagination::Rails %>
 </div>
+
