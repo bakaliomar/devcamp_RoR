@@ -1,26 +1,28 @@
-<div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
-    <div class="col-md-6 px-0">
-        <h1 class="display-4 font-italic"><%= Blog.last.title %></h1>
-        <p class="lead my-3"><%=  truncate(Blog.last.title, :length => 100) %></p>
-        <p class="lead mb-0"><%= link_to "Continue reading..." , Blog.last, class: "text-white font-weight-bold" %></p>
-    </div>
-</div>
+<% if !Blog.last.nil? %>
+  <div class="jumbotron p-4 p-md-5 text-white rounded bg-dark">
+      <div class="col-md-6 px-0">
+          <h1 class="display-4 font-italic"><%= Blog.last.title %></h1>
+          <p class="lead my-3"><%=  truncate(Blog.last.title, :length => 100) %></p>
+          <p class="lead mb-0"><%= link_to "Continue reading..." , Blog.last, class: "text-white font-weight-bold" %></p>
+      </div>
+  </div>
 
-<div class="row mb-2">
-  <% Blog.feature.each do |blog| %>
-    <div class="col-md-6">
-        <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
-            <div class="col p-4 d-flex flex-column position-static">
-              <strong class="d-inline-block mb-2 text-primary"><%= blog.topic.title %></strong>
-              <h3 class="mb-0">Featured post</h3>
-              <div class="mb-1 text-muted">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</div>
-              <p class="card-text mb-auto"><%= truncate(blog.body, length: 100) %></p>
-              <%= link_to 'Continue reading', blog, class: "stretched-link" %>
-            </div>
-            <div class="col-auto d-none d-lg-block">
-            <%= image_tag image_path('Sunshade.jpg'), class: "bd-placeholder-img", width: "200", height: "250" %>
-            </div>
-        </div>
-    </div>
-  <% end %>
-</div>
+  <div class="row mb-2">
+    <% Blog.feature.each do |blog| %>
+      <div class="col-md-6">
+          <div class="row no-gutters border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+              <div class="col p-4 d-flex flex-column position-static">
+                <strong class="d-inline-block mb-2 text-primary"><%= blog.topic.title %></strong>
+                <h3 class="mb-0">Featured post</h3>
+                <div class="mb-1 text-muted">Published <%= distance_of_time_in_words(blog.created_at, Time.now) %> ago</div>
+                <p class="card-text mb-auto"><%= truncate(blog.body, length: 100) %></p>
+                <%= link_to 'Continue reading', blog, class: "stretched-link" %>
+              </div>
+              <div class="col-auto d-none d-lg-block">
+              <%= image_tag image_path('Sunshade.jpg'), class: "bd-placeholder-img", width: "200", height: "250" %>
+              </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>
