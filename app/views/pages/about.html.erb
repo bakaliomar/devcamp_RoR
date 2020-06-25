@@ -3,7 +3,7 @@
         <h1>About Me</h1>
         <div class= "row">
             <div class="col-md-4">
-                <%= image_tag 'profile.jpeg', width: 300, height: 400, alt: 'Profile image', class: 'profile-img' %>
+                <%= image_tag image_path('profile.jpeg'), width: 300, height: 400, alt: 'Profile image', class: 'profile-img' %>
                 <div class="skills">
                     <% @skills.each do |skill| %>
                         <div class="skill">
