@@ -49,8 +49,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
-  host: localhost
+  <<: &default_settings
   database: "<%= ENV['DATABASE_NAME'] %>"
   username: "<%= ENV['DATABASE_USERNAME'] %>"
   password: "<%= ENV['DATABASE_PASSWORD'] %>"
