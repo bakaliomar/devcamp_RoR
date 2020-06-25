@@ -17,7 +17,7 @@ default: &default
   password:
   socket: /var/run/mysqld/mysqld.sock
   encoding: unicode
-  
+
 development:
   <<: *default
   database: myapp_development
@@ -49,7 +49,7 @@ test:
 #     url: <%= ENV['DATABASE_URL'] %>
 #
 production:
-  <<: *default
+  <<: &default_settings
   database: myapp_production
   username: myapp
   password: <%= ENV['MYAPP_DATABASE_PASSWORD'] %>
