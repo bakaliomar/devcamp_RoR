@@ -53,6 +53,7 @@ gem 'twitter', '~> 7.0'
 gem 'redis', '~> 4.2', '>= 4.2.1'
 gem 'redcarpet', '~> 3.5'
 gem 'coderay', '~> 1.1', '>= 1.1.3'
+ruby "2.7.0"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
